@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | Beer Counter</title>
+    <link rel="stylesheet" href="/static/styles/login_signup.css">
+</head>
+<body>
+    <form action="/signup" method="post">
+        <section id="section">
+            <h2 class="tittle">Registrarse</h2>
+            <legend for="username">Usuario:</legend>
+            <input class="input" type="text" name="username">
+            <legend for="name">Nombre:</legend>
+            <input class="input" type="text" name="name">
+            <legend for="surname">Apellidos:</legend>
+            <input class="input" type="text" name="surname">
+            <legend for="password">Contraseña:</legend>
+            <input class="input" type="password" name="password">
+            <button type="submit" class="submit">--></button>
+            <a href="/login" class="redirect">Acceder</a>
+        </section>
+    </form>
+</body>    
+</html>

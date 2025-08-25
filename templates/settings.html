@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="viewport=device-width, initial-scale=1.0">
+    <title>Settings - {{user.username}} - | Beer Counter</title>
+    <link rel="stylesheet" href="/static/styles/dashboard.css">
+</head>
+<body>
+    <section id="section">
+        <h2 class="tittle">Eliminar Cuenta</h2>
+        <form action="/settings" method="post">
+        <section id="section_delete">
+            <legend class="legend" for="password">Introduzca su contraseña:</legend>
+            <input class="input" type="password" name="password"><br>
+            <button class="button_delete" type="submit" name="delete_user">Eliminar</button>
+        </section>
+        </form> 
+        <p>*Se requiere la constraseña para poder eliminar correctamente la cuenta*</p>
+    </section>
+</body>
+</html>

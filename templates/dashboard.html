@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - {{user.username}} - | Beer Counter</title>
+    <link rel="stylesheet" href="/static/styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body data-username= "{{user.username}}" data-ws_url="{{ws_url}}">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+
+    <i id="menu-toggle" class="fa-solid fa-bars"></i>
+        <div id="side-menu" class="side-menu">
+            <ul>
+                <li><a href="/ranking">Máximos Consumidores</a></li>
+                <li><a href="/settings">Configuración</a></li>
+                <li><a href="/logout">Cerrar sesión</a></li>
+            </ul>
+        </div>
+
+    <section id="principal_section">
+    <section id="section">
+        <h2 class="tittle">Añadir cervezas al registro</h2>
+        <div class="general">
+            <div class="images_text">
+                <h1 class="tittle_img">33Cl</h1>
+                <button onclick="send('cl33_add')" class="button_img"><img src="/static/img/33cl.png"></button><br><br>
+                <button onclick="send('cl33_delete')" class="button_delete">Eliminar</button>
+            </div>
+            <div class="images_text">
+                <h1 class="tittle_img">50Cl</h1>
+                <button onclick="send('cl50_add')" class="button_img"><img src="/static/img/50cl.png"></button><br><br>
+                <button onclick="send('cl50_delete')" class="button_delete">Eliminar</button>
+            </div>
+            <div class="images_text">
+                <h1 class="tittle_img">Jarra/Caña</h1>
+                <button onclick="send('jarra_caña_add')" class="button_img"><img src="/static/img/jarra.png"></button><br><br>
+                <button onclick="send('jarra_caña_delete')" class="button_delete">Eliminar</button>
+            </div>
+        </div><br>
+    </section>
+    <section id="section2">
+    <section id="section">
+        <h2 class="tittle">Estadísticas cerveceras de {{user.name}} {{user.surname}}</h2>
+        <table>
+            <tr>
+                <th>Cervezas 33Cl</th>   
+                <th>Cervezas 50Cl</th>     
+                <th>Jarras/Cañas</th>    
+            </tr>
+            <tr> 
+                <td id="cl33">{{user.beers.cl33}}</td>    
+                <td id="cl50">{{user.beers.cl50}}</td>       
+                <td id="jarra_caña">{{user.beers.jarra_caña}}</td> 
+            </tr>
+        </table><br>
+        <p>Cervezas totales consumidas: <span id="total_beers">{{user.beers.total_beers}}</span></p>
+    </section>
+    <section id="section">
+        <h2 class="tittle">Control de Consumo</h2>
+        {% if last_time %}
+        <p><strong>Última consumición:</strong> {{last_time.strftime('%d/%m/%Y %H:%M:%S')}}</p>
+        {% else %}
+        <p>Sin consumiciones aún.</p>
+        {% endif %}
+    </section>
+    </section>
+    </section>
+    <script src="/static/js/addbeers.js"></script>
+    <script src="/static/js/menu.js"></script>
+<footer id="footer">Consume con Responsabilidad - Mayor de 18 años</footer>
+</body>
+</html>
