@@ -39,5 +39,5 @@ async def signup_post(user: UserSignup = Depends(UserSignup.signup)):
     user_username = user["username"]
     token = encode_token(user_username)
     response = RedirectResponse(url=f"/dashboard/{user_username}", status_code=status.HTTP_303_SEE_OTHER)
-    response.set_cookie(key="access_token", value=token, httponly=True, samesite="strict")
+    response.set_cookie(key="access_token", value=token, httponly=True, samesite="strict")  #⚠️⚠️ Consider adding "secure=True" for HTTP requests only ⚠️⚠️
     return response

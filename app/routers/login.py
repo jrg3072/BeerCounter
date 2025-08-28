@@ -38,6 +38,6 @@ async def login_post(user: UserLogin = Depends(UserLogin.login)):
     user_username = saved_user["username"]
     token = encode_token(user_username)
     response = RedirectResponse(url=f"/dashboard/{user_username}", status_code=status.HTTP_303_SEE_OTHER)
-    response.set_cookie(key="access_token", value=token, httponly=True)
+    response.set_cookie(key="access_token", value=token, httponly=True) #⚠️⚠️ Consider adding "secure=True" for HTTP requests only ⚠️⚠️
     return response
 
