@@ -5,3 +5,7 @@ __pycache__/
 
 .idea
 /.idea
+
+## TEST ##
+
+/app/test/test_dashboard.py
